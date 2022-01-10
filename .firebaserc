@@ -1,6 +1,5 @@
 {
   "projects": {
-    "burguer-queen": "scl018-burger-queen",
     "burger-queen": "scl018-burger-queen"
   },
   "targets": {}
