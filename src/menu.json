@@ -1,0 +1,137 @@
+{ "drinks": [
+    {
+    "id": 1,
+    "name": "Café Americano",
+    "price": 5.00,
+    "category": "Drinks",
+    "quantity": 0
+    },
+    {
+    "id": 2,
+    "name": "Café con Leche",
+    "price": 5.00,
+    "category": "Drinks",
+    "quantity": 0
+    },
+    {
+    "id": 3,
+    "name": "Jugo Natural",
+    "price": 1.50,
+    "category": "Drinks",
+    "quantity": 0
+    },
+    {
+    "id": 4,
+    "name": "Agua Mineral 500ml",
+    "price": 10.00,
+    "category": "Drinks",
+    "quantity": 0
+    },
+    {
+    "id": 5,
+    "name": "Agua Mineral 750ml",
+    "price": 10.00,
+    "category": "Drinks",
+    "quantity": 0
+    },
+    {
+    "id": 6,
+    "name": "Bebida 500ml",
+    "price": 10.00,
+    "category": "Drinks",
+    "quantity": 0
+    },
+    {
+    "id": 7,
+    "name": "Bebida 750ml",
+    "price": 10.00,
+    "category": "Drinks",
+    "quantity": 0
+    }
+],
+
+"food": [
+    {
+    "id": 1,
+    "name": "Sandwich de Jamon y Queso",
+    "price": 7.00,
+    "category": "Food",
+    "quantity": 0
+    },
+    {
+    "id": 2,
+    "name": "Hamburguesa Simple Carne",
+    "price":7.00,
+    "category": "Food",
+    "quantity": 0
+    },
+    {
+    "id": 3,
+    "name": "Hamburguesa Simple Pollo",
+    "price":7.00,
+    "category": "Food",
+    "quantity": 0
+    },
+    {
+    "id": 4,
+    "name": "Hamburguesa Simple Vegetariana",
+    "price":7.00,
+    "category": "Food",
+    "quantity": 0
+    },
+    {
+    "id": 5,
+    "name": "Hamburguesa Doble Carne",
+    "price":8.00,
+    "category": "Food",
+    "quantity": 0
+    },
+    {
+    "id": 6,
+    "name": "Hamburguesa Doble Pollo",
+    "price":8.00,
+    "category": "Food",
+    "quantity": 0
+    },
+    {
+    "id": 7,
+    "name": "Hamburguesa Doble Vegetariana",
+    "price":8.00,
+    "category": "Food",
+    "quantity": 0
+    }
+],
+"sideDish": [
+    
+    {
+    "id": 1,
+    "name": "Papas Fritas",
+    "price": 4.00,
+    "category": "Side dish",
+    "quantity": 0
+    },
+    {
+    "id": 8,
+    "name": "Aros de Cebolla",
+    "price": 4.00,
+    "category": "Food",
+    "quantity": 0
+    }
+],
+"extra": [
+    {
+    "id": 1,
+    "name": "Queso",
+    "price": 1.00,
+    "category": "Extra",
+    "quantity": 0
+    },
+    {
+    "id": 2,
+    "name": "Huevo",
+    "price": 1.00,
+    "category": "Extra",
+    "quantity": 0
+    }
+]
+}

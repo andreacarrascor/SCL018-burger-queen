@@ -10,8 +10,8 @@ const Home = () => {
                     <img src={burger_logo} alt="" />
                 </div>
                 <div className="flex justify-center space-x-10">
-                    <Link to="/waiter"><button className="h-20 px-10 font-semibold text-lg text-teal-50 transition-colors duration-150 bg-teal-500 rounded-lg focus:shadow-outline hover:bg-teal-800">Waiter</button></Link>
-                    <Link to="/kitchen"><button className="h-20 px-10 font-semibold text-lg text-teal-50 transition-colors duration-150 bg-teal-500 rounded-lg focus:shadow-outline hover:bg-teal-800">Kitchen</button></Link>
+                    <Link to="/waiter"><button className="h-20 px-10 font-semibold text-lg text-teal-50 transition-colors duration-150 bg-teal-500 rounded-lg focus:shadow-outline hover:bg-teal-800">Mesero</button></Link>
+                    <Link to="/kitchen"><button className="h-20 px-10 font-semibold text-lg text-teal-50 transition-colors duration-150 bg-teal-500 rounded-lg focus:shadow-outline hover:bg-teal-800">Cocina</button></Link>
                 </div>
             </div>
         </>
