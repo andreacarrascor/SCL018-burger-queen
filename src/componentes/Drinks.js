@@ -5,9 +5,16 @@ const Drinks = () => {
     const menuDrinks = menu.drinks;
     return (
         <>
+            <h2 className="font-bold m-5">Calientes y Frías</h2>
             {menuDrinks.map((e, index) => {
                 return (
-                    <li key={index}>{e.name}</li>
+                    <button 
+                        className="flex-wrap border-solid border-2 border-teal-500 rounded-md space-x-4 m-2 ml-5 p-2 font-semibold text-gray-500 bg-none"
+                        // onClick={} 
+                        key={index}>
+                            <p className="whitespace-pre">{e.name}    ${e.price}</p>
+                    </button>
+                    
                 );
             })}
         </>

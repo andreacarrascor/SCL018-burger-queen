@@ -53,7 +53,7 @@
 "food": [
     {
     "id": 1,
-    "name": "Sandwich de Jamon y Queso",
+    "name": "Sandwich Jamon-Queso",
     "price": 7.00,
     "category": "Food",
     "quantity": 0
