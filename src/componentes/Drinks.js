@@ -9,7 +9,7 @@ const Drinks = () => {
             {menuDrinks.map((e, index) => {
                 return (
                     <button 
-                        className="flex-wrap border-solid border-2 border-teal-500 rounded-md space-x-4 m-2 ml-5 p-2 font-semibold text-gray-500 bg-none"
+                        className="flex border-solid border-2 border-teal-500 rounded-md space-x-4 m-2 ml-5 p-2 font-semibold text-gray-500 bg-none"
                         // onClick={} 
                         key={index}>
                             <p className="whitespace-pre">{e.name}    ${e.price}</p>

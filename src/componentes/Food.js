@@ -8,7 +8,7 @@ const Food = () => {
     
     return (
         <>
-            <h2 className="font-bold m-5">Sandwiches</h2>
+            <h2 className="font-bold m-5">Sandwich y Hamburguesas</h2>
             {menuFood.map((e, index) => {
                 return (
                     <button 
@@ -17,7 +17,7 @@ const Food = () => {
                         key={index}>
                             <p className="whitespace-pre">{e.name}    ${e.price}</p>
                     </button>
-                ); 
+                );
             })}
             <h2 className="font-bold mt-5 ml-5">Acompañamientos</h2>
             {menuSideDish.map((e, index) => {
