@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, {useContext, useState} from "react";
+import React, {useState} from "react";
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import menu from "./menu.json";
@@ -8,18 +8,21 @@ import Waiter from './componentes/Waiter';
 import Kitchen from './componentes/Kitchen';
 
 const dataMenu = menu;
-console.log(dataMenu);
+// console.log(dataMenu);
 export const ContextProducts = React.createContext();
 
 const App = () => {
-  const [products, setproducts] = useState({
+  //estado data del cliente para pasar a resumeOrder y a clientForm
+  const [name, changeName] = useState("");
+  const [table, changeTable] = useState("");
+  //estado data de menu para pasar a drinks, food y resumeOrder
+  const [products, setProducts] = useState({
     menuArrays: dataMenu,
     resumeOrder: []
   });
 
-
   const addProducts = (dish) => {
-    return setproducts({
+    return setProducts({
       ...products,
       resumeOrder: products.resumeOrder.find((item) => item.id === dish.id)
         ? products.resumeOrder.map((item) =>
@@ -32,14 +35,14 @@ const App = () => {
   }
 
   const removeFromOrder = (id) => {
-    setproducts({
+    setProducts({
       ...products,
       resumeOrder: products.resumeOrder.filter((item) => item.id !== id)
     });
   };
   
   const increase = (id) => {
-    setproducts({
+    setProducts({
       ...products,
       resumeOrder: products.resumeOrder.map((item) =>
         item.id === id
@@ -50,7 +53,7 @@ const App = () => {
   };
 
   const decrease = (id) => {
-    setproducts({
+    setProducts({
       ...products,
       resumeOrder: products.resumeOrder.map((item) =>
         item.id === id
@@ -60,7 +63,11 @@ const App = () => {
     });
   };
 
-  const resumeProps = { products, addProducts, removeFromOrder, increase, decrease };
+  const totalOrderAmount = products.resumeOrder
+        .reduce((total, dish) => (total = total + dish.price * dish.count), 0)
+        .toFixed(2);
+
+  const resumeProps = { name, table, changeName, changeTable, products, addProducts, removeFromOrder, increase, decrease, totalOrderAmount };
 
   return (
     <>

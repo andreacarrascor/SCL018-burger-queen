@@ -12,7 +12,6 @@ const MenuOrder = () => {
 
     return (
         <>
-            
                 <div className={styles.container}>
                     <div className={styles.blocTabs}>
                         <button
@@ -43,7 +42,6 @@ const MenuOrder = () => {
                         </div>
                     </div>
                 </div>
-        
         </>
     );
 }

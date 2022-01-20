@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import {ContextProducts} from "../App.js";
 
 
-const Drinks = (props) => {
+const Drinks = () => {
     const globalContext = useContext(ContextProducts);
     const menuDrinks = globalContext.products.menuArrays.drinks
     return (
