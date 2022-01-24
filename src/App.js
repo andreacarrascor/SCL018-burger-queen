@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import "@material-tailwind/react/tailwind.css";
 import React, {useState} from "react";
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
@@ -77,7 +78,7 @@ const App = () => {
           <Route path="/waiter" element={<Waiter />} />
           <Route path="/kitchen" element={<Kitchen />} />
         </Routes>
-      </ContextProducts.Provider>
+      </ContextProducts.Provider>  
     </>
 
   );
