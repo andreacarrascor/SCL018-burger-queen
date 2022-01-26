@@ -8,23 +8,22 @@ import Header from "./Header";
 const Waiter = () => {
 
     return (
-        <> <Header />
-        <div className="flex justify-center"> 
-            <div className="grid grid-cols-2 container max-width: 768px">
-                <div className="flex flex-col justify-center m-8">
-                    <div className="flex justify-center">
+
+        <div className="w-full container-lg">
+            <Header />
+            <div className="flex flex-row justify-evenly">
+                <div className="flex flex-col justify-start">
                         <ClientForm />
-                    </div>
-                    <div className="w-full p-5">
+                    <div className="w-full">
                         <MenuOrder />
                     </div>
                 </div>
-                <div className="m-8 border-solid">
+                <div className="flex justify-start m-8 border-solid">
                     <ResumeOrder />
                 </div>
             </div>
-            </div>
-            </>
+        </div>
+
     )
 };
 

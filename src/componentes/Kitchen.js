@@ -1,13 +1,11 @@
 import React from "react";
-
+import Header from "./Header";
 
 const Kitchen = () => {
     return (
-        <>
-            <div>
-                <h1>aquí va Kitchen</h1>
-            </div>
-        </>
+        <div>
+            <Header />
+        </div>
     );
 };
 

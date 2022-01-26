@@ -5,17 +5,16 @@ import Drinks from "./Drinks";
 const MenuOrder = () => {
     const [openTab, setOpenTab] = useState(1);
     return (
-        <>
             <div className="flex flex-wrap">
                 <div className="w-full">
                     <ul
-                        className="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row"
+                        className="flex m-0 list-none flex-wrap pb-4 flex-row"
                         role="tablist"
-                    >
+                    >   
                         <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
-                            <a
+                            <a  
                                 className={
-                                    "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                                    "text-sm font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
                                     (openTab === 1
                                         ? "text-white bg-teal-600"
                                         : "text-teal-600 bg-opacity-50")
@@ -27,14 +26,14 @@ const MenuOrder = () => {
                                 data-toggle="tab"
                                 href="#link1"
                                 role="tablist"
-                            >
-                                <i className="text-base mr-1"></i> Drinks
+                            >   
+                                <i className="fas fa-glass-whiskey text-base mr-1"></i> Drinks
                             </a>
                         </li>
                         <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
                             <a
                                 className={
-                                    "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                                    "text-sm font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
                                     (openTab === 2
                                         ? "text-white bg-teal-600"
                                         : "text-teal-600 bg-opacity-50")
@@ -47,12 +46,12 @@ const MenuOrder = () => {
                                 href="#link2"
                                 role="tablist"
                             >
-                                <i className="text-base mr-1"></i>  Food
+                                <i className="fas fa-hamburger text-base mr-1"></i>  Food
                             </a>
                         </li>
                     </ul>
-                    <div className="relative flex flex-col min-w-0 break-words bg-opacity-50 w-full mb-6 shadow-lg rounded">
-                        <div className="px-4 py-5 flex justify-center">
+                    <div className="relative flex flex-col max-h-screen min-w-0 break-words bg-opacity-50 w-full shadow-lg rounded">
+                        <div className="px-4 flex justify-center md:overflow-y-auto  h-80 mb-10">
                             <div className="tab-content tab-space">
                                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
                                     <Drinks />
@@ -65,7 +64,6 @@ const MenuOrder = () => {
                     </div>
                 </div>
             </div>
-        </>
     );
 };
 

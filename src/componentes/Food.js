@@ -1,5 +1,6 @@
 import React, {useContext} from "react";
 import {ContextProducts} from "../App.js";
+import Button from "@material-tailwind/react/Button";
 
 const Food = () => {
     const globalContext = useContext(ContextProducts);
@@ -12,43 +13,66 @@ const Food = () => {
             <h2 className="font-bold m-5 text-gray-600">Sandwich y Hamburguesas</h2>
             {menuFood.map((dish) => {
                 return (
-                    <button 
-                        className="bg-teal-600 rounded-md space-x-4 m-2 ml-5 p-2 font-semibold text-white hover:bg-teal-800"
+                    <Button
+                        className="m-2 ml-5 mb-3 p-2"
                         onClick={() => globalContext.addProducts(dish)} 
-                        key={dish.id}>
+                        key={dish.id}
+                        color="teal"
+                        buttonType="filled"
+                        size="sm"
+                        rounded={false}
+                        block={false}
+                        iconOnly={false}
+                        ripple="light">
                             <div className="flex justify-around items-center ">
-                                <div className="item w-52 h-8 order-first">{dish.name}</div>
-                                <div className="item w-16 h-8 order-last flex-initial">${dish.price}</div>
+                                <div className="flex item w-64 h-8 items-center">{dish.name}</div>
+                                <div className="flex item w-8 h-8 items-center">${dish.price}</div>
                             </div>
-                    </button>
+                    </Button>
                 );
             })}
             <h2 className="font-bold m-5 text-gray-600">Acompañamientos</h2>
             {menuSideDish.map((sideDish) => {
                 return (
-                    <button 
-                        className="bg-teal-600 rounded-md space-x-4 m-2 ml-5 p-2 font-semibold text-white hover:bg-teal-800"
+                    <Button 
+                        className="m-2 ml-5 mb-3 p-2"
                         onClick={() => globalContext.addProducts(sideDish)}  
-                        key={sideDish.id}>
+                        key={sideDish.id}
+                        color="teal"
+                        buttonType="filled"
+                        size="sm"
+                        rounded={false}
+                        block={false}
+                        iconOnly={false}
+                        ripple="light">
                             <div className="flex justify-around items-center ">
-                                <div className="item w-32 h-8 order-first">{sideDish.name}</div>
-                                <div className="item w-8 h-8 order-last flex-initial">${sideDish.price}</div>
+                                <div className="flex item w-64 h-8 items-center">{sideDish.name}</div>
+                                <div className="flex item w-8 h-8 items-center">${sideDish.price}</div>
                             </div>
-                    </button>
+                    </Button>
                 );
             })}
             <h2 className="font-bold m-5 text-gray-600">Extras</h2>
             {menuExtras.map((extra) => {
                 return (
-                    <button 
-                        className="bg-teal-600 rounded-md space-x-4 m-2 ml-5 p-2 font-semibold text-white hover:bg-teal-800 focus:shadow-outline"
+                    
+                    <Button
+                        className="m-2 ml-5 mb-3 p-2"
                         onClick={() => globalContext.addProducts(extra)} 
-                        key={extra.id}>
+                        key={extra.id}
+                        color="teal"
+                        buttonType="filled"
+                        size="sm"
+                        rounded={false}
+                        block={false}
+                        iconOnly={false}
+                        ripple="light">
                             <div className="flex justify-around items-center ">
-                                <div className="item w-24 h-8 order-first">{extra.name}</div>
-                                <div className="item w-16 h-8 order-last flex-initial">${extra.price}</div>
+                                <div className="flex item w-64 h-8 items-center">{extra.name}</div>
+                                <div className="flex item w-8 h-8 items-center">${extra.price}</div>
                             </div>
-                    </button>
+                    </Button>
+                    
                 );
             })}
         </>
