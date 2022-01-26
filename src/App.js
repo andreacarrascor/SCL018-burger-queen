@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import "@material-tailwind/react/tailwind.css";
 import React, {useState} from "react";
 import { Route, Routes } from 'react-router-dom';
@@ -8,8 +7,8 @@ import Home from './componentes/Home';
 import Waiter from './componentes/Waiter';
 import Kitchen from './componentes/Kitchen';
 
+
 const dataMenu = menu;
-// console.log(dataMenu);
 export const ContextProducts = React.createContext();
 
 const App = () => {
@@ -71,7 +70,6 @@ const App = () => {
   const resumeProps = { name, table, changeName, changeTable, products, addProducts, removeFromOrder, increase, decrease, totalOrderAmount };
 
   return (
-    <>
       <ContextProducts.Provider value={resumeProps}>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -79,8 +77,6 @@ const App = () => {
           <Route path="/kitchen" element={<Kitchen />} />
         </Routes>
       </ContextProducts.Provider>  
-    </>
-
   );
 }
 

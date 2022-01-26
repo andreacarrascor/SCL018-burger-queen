@@ -1,8 +1,9 @@
-/* eslint-disable no-lone-blocks */
 import React, { useContext } from "react";
 import { ContextProducts } from "../App.js";
 import db from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
+import Button from "@material-tailwind/react/Button";
+import InputIcon from "@material-tailwind/react/InputIcon";
 
 const ResumeOrder = () => {
     const globalContext = useContext(ContextProducts);
@@ -25,54 +26,80 @@ const ResumeOrder = () => {
     }
 
     return (
-        <>
-                <h2 className="font-bold m-5 text-gray-600">RESUMEN ORDEN</h2>
-                <form action="" onSubmit={onSubmit}>
-                    <div>
-                        <div>
-                            <p className="text-gray-600 border-solid border-2 border-teal-600 rounded-md focus:outline-none m-5 p-2 w-48">
-                                Nombre: {globalContext.name}
-                            </p>
-                        </div>
-                        <div>
-                            <p className="text-gray-600 border-solid border-2 border-teal-600 rounded-md focus:outline-none m-5 p-2 w-24">
-                                Mesa: {globalContext.table}
-                            </p>
-                        </div>
-                    </div>
-                
-            
+        <form className= "" action="" onSubmit={onSubmit}>
+            <h2 className="font-bold text-gray-600">RESUMEN ORDEN</h2>
+            <div className="flex justify-center">
+                <div className="w-64 m-3 mt-6">
+                    <InputIcon
+                        type="text"
+                        readOnly
+                        name={globalContext.name}
+                        color="teal"
+                        outline={true}
+                        value={globalContext.name}
+                        onChange={(e) => globalContext.changeName(e.target.value)}
+                        iconFamily="material-icons"
+                        iconName="person"
+                    />
+                </div>
+                <div className="w-24 m-3 mt-6">
+                    <InputIcon
+                        type="number"
+                        readOnly
+                        min="1"
+                        max="15"
+                        name={globalContext.table}
+                        color="teal"
+                        outline={true}
+                        value={globalContext.table}
+                        onChange={(e) => globalContext.changeTable(e.target.value)}
+                        placeholder="N°"
+                    />
+                </div>
+            </div>
+            <div className="md:overflow-y-auto min-h-96 max-h-96 relative flex flex-col min-w-0 break-words bg-opacity-50 w-full shadow-lg rounded">
                 {globalContext.products.resumeOrder.map((dish) => (
-                    <div key={dish.id} className="flex border-solid border-2 border-teal-500 rounded-md space-x-4 m-2 ml-5 p-2 font-semibold text-gray-500 bg-none">
-                        <h4 className="whitespace-pre">
-                            {dish.name}    ${dish.price}
-                        </h4>
-                        <button className="flex border-solid border-2 border-teal-500 rounded-full space-x-4 m-2 ml-5 p-2 font-semibold text-gray-500 bg-none"
-                            onClick={() => globalContext.decrease(dish.id)}>
-                            -
-                        </button>
-                        <p>{dish.count}</p>
-                        <button className="flex border-solid border-2 border-teal-500 rounded-full space-x-4 m-2 ml-5 p-2 font-semibold text-gray-500 bg-none"
-                            onClick={() => globalContext.increase(dish.id)}>
-                            +
-                        </button>
-                        <button className="flex border-solid border-2 border-teal-500 rounded-md space-x-4 m-2 ml-5 p-2 font-semibold text-gray-500 bg-none"
+                    <div className="flex justify-center">
+                        <div key={dish.id} className="w-80 h-11 flex justify-center border-solid border-2 border-teal-500 rounded-md m-2 font-semibold text-gray-500 bg-none">
+                            <div className="flex items-center whitespace-pre px-2 text-xs uppercase w-64">
+                                <div className="flex item w-48 h-8 items-center">{dish.name}</div>
+                                <div className="flex item w-8 h-8 items-center">${dish.price}</div>
+                            </div>
+                            <div className="flex w-20">
+                                <button className="flex focus:outline-none space-x-4 items-center text-amber-500 bg-none"
+                                    onClick={() => globalContext.decrease(dish.id)}>
+                                    <i className="fas fa-minus-circle fa-lg"></i>
+                                </button>
+                                <p className="flex items-center px-2 pr-2 text-sm">{dish.count}</p>
+                                <button className="flex focus:outline-none items-center text-amber-500 bg-none"
+                                    onClick={() => globalContext.increase(dish.id)}>
+                                    <i className="fas fa-plus-circle fa-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button className="flex items-center focus:outline-none font-semibold text-red-500 bg-none mr-5"
                             onClick={() => globalContext.removeFromOrder(dish.id)}>
-                            x
+                            <i className="fas fa-window-close fa-2x"></i>
                         </button>
                     </div>
                 ))}
-                <div className="flex">
-            <h3 className="font-bold m-5 text-gray-600 item w-48 self-center">Total ${totalOrder}   </h3>
-                    <div className="flex justify-center ">
-                        <button className="m-5 h-10 px-5 font-semibold text-lg text-teal-50 transition-colors duration-150 bg-teal-500 rounded-lg focus:shadow-outline hover:bg-teal-800"
-                            type='submit'>
+            </div>
+            <div className="flex justify-center relative my-2 min-w-0 break-words bg-opacity-50 w-full shadow-lg rounded">
+                    <h3 className="font-bold my-4 text-gray-600 item w-48">Total ${totalOrder}   </h3>
+                    <div className="flex justify-center my-4 ">
+                        <Button
+                            type='submit'
+                            color="teal"
+                            buttonType="filled"
+                            size="md"
+                            rounded={false}
+                            block={false}
+                            ripple="light">
                             Enviar a cocina
-                        </button>
+                        </Button>
                     </div>
-                    </div>
-                    </form>
-        </>
+                </div>
+        </form>
     );
 };
 
