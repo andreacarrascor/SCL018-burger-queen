@@ -18,13 +18,29 @@ const OrdersList = () => {
     )
   }, [])
 
+  let pendingOrders = orders.filter((order) => {
+    return order.status === "Pendiente";
+  })
+
+  let sortedPendingOrders = pendingOrders.sort((a, b) => {
+    if (a.orderTime < b.orderTime) {
+      return 1;
+    }
+    if (a.orderTime > b.orderTime) {
+      return -1;
+    }
+    // a debe ser igual b
+    return 0;
+  });
+
   return (
     // si existen órdenes, entonces muestra el contenido (div)
     orders.length > 0 &&
     <div className="flex flex-wrap justify-start mx-5">
-      {orders.map((order) => {
+      {sortedPendingOrders.map((order) => {
         return <Orders
           key={order.id}
+          id={order.id}
           time={order.orderTime}
           table={order.clientTable}
           name={order.clientName}

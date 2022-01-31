@@ -8,12 +8,11 @@ import InputIcon from "@material-tailwind/react/InputIcon";
 const ResumeOrder = () => {
   const globalContext = useContext(ContextProducts);
   const totalOrder = globalContext.totalOrderAmount;
-  console.log(globalContext);
 
   const onSubmit = async (e) => {
     e.preventDefault();
     const date = new Date();
-    const time = `${date.getHours()}:${date.getMinutes()}`
+    const time = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
     
     if (globalContext.name === "" || globalContext.table === "") 
     {alert("Completa los campitos")}

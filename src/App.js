@@ -1,5 +1,5 @@
 import "@material-tailwind/react/tailwind.css";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import menu from "./menu.json";
@@ -22,15 +22,23 @@ const App = () => {
     resumeOrder: []
   });
 
+  const [statusReady, setStatusReady] = useState({
+    status: "Pendiente"
+  });
+
+  const [statusDelivered, setStatusDelivered] = useState({
+    status: "Listo"
+  });
+
   const addProducts = (dish) => {
     return setProducts({
       ...products,
       resumeOrder: products.resumeOrder.find((item) => item.id === dish.id)
         ? products.resumeOrder.map((item) =>
-            item.id === dish.id
-              ? { ...item, count: item.count + 1 }
-              : item
-          )
+          item.id === dish.id
+            ? { ...item, count: item.count + 1 }
+            : item
+        )
         : [...products.resumeOrder, { ...dish, count: 1 }]
     });
   }
@@ -41,13 +49,14 @@ const App = () => {
       resumeOrder: products.resumeOrder.filter((item) => item.id !== id)
     });
   };
-  
+
   const clearProductsFromOrder = () => {
     setProducts({
       ...products,
       resumeOrder: []
     })
   }
+
   const increase = (id) => {
     setProducts({
       ...products,
@@ -71,32 +80,36 @@ const App = () => {
   };
 
   const totalOrderAmount = products.resumeOrder
-        .reduce((total, dish) => (total = total + dish.price * dish.count), 0)
-        .toFixed(2);
+    .reduce((total, dish) => (total = total + dish.price * dish.count), 0)
+    .toFixed(2);
 
-  const resumeProps = { 
-                        name, 
-                        table,  
-                        changeName, 
-                        changeTable, 
-                        products, 
-                        addProducts, 
-                        removeFromOrder,
-                        clearProductsFromOrder, 
-                        increase, 
-                        decrease, 
-                        totalOrderAmount 
-                      };
+  const resumeProps = {
+    name,
+    table,
+    changeName,
+    changeTable,
+    products,
+    addProducts,
+    removeFromOrder,
+    clearProductsFromOrder,
+    increase,
+    decrease,
+    totalOrderAmount,
+    statusReady,
+    setStatusReady,
+    statusDelivered,
+    setStatusDelivered
+  };
 
   return (
-      <ContextProducts.Provider value={resumeProps}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/waiter" element={<Waiter />} />
-          <Route path="/kitchen" element={<Kitchen />} />
-          <Route path="/toServe" element={<ToServe />} />
-        </Routes>
-      </ContextProducts.Provider>  
+    <ContextProducts.Provider value={resumeProps}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/waiter" element={<Waiter />} />
+        <Route path="/kitchen" element={<Kitchen />} />
+        <Route path="/toServe" element={<ToServe />} />
+      </Routes>
+    </ContextProducts.Provider>
   );
 }
 
