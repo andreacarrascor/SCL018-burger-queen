@@ -46,7 +46,7 @@
 "food": [
     {
     "id": "f1",
-    "name": "Sandwich Jamon-Queso",
+    "name": "Sandwich Jamón-Queso",
     "price": 7.00,
     "category": "Food"
     },
