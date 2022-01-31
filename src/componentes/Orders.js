@@ -8,6 +8,7 @@ const Orders = ({ name, table, order, time, id }) => {
   const globalContext = useContext(ContextProducts);
   const statusReady = globalContext.statusReady;
   const setStatusReady = globalContext.setStatusReady;
+  console.log(statusReady)
 
   const changeStatus = () => {
     setStatusReady({

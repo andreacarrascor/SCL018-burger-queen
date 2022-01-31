@@ -6,7 +6,7 @@ import menu from "./menu.json";
 import Home from "./componentes/Home";
 import Waiter from "./componentes/Waiter";
 import Kitchen from "./componentes/Kitchen";
-import ToServe from "./componentes/ToServe";
+import ToDelivery from "./componentes/ToDelivery";
 
 
 const dataMenu = menu;
@@ -107,7 +107,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/waiter" element={<Waiter />} />
         <Route path="/kitchen" element={<Kitchen />} />
-        <Route path="/toServe" element={<ToServe />} />
+        <Route path="/toDelivery" element={<ToDelivery />} />
       </Routes>
     </ContextProducts.Provider>
   );

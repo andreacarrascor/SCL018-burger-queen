@@ -8,11 +8,12 @@ const OrdersToServe = ({ name, table, order, time, id }) => {
     const globalContext = useContext(ContextProducts);
     const setStatusDelivered = globalContext.setStatusDelivered;
     const statusDelivered = globalContext.statusDelivered;
+    console.log(statusDelivered)
 
     const changeStatus = () => {
     setStatusDelivered({
         ...statusDelivered,
-        status: 'Listo'
+        status: 'Entregado'
     })
     }
 
@@ -54,7 +55,7 @@ const OrdersToServe = ({ name, table, order, time, id }) => {
             rounded={false}
             block={false}
             ripple="light">
-            Marcar Listo
+            Entregado
             </Button>
         </div>
         </div>

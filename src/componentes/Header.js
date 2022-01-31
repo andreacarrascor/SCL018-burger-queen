@@ -32,7 +32,7 @@ const Header = () => {
               </a>
               <a
                 className="px-3 py-2 flex items-center"
-                href="/toServe"
+                href="/toDelivery"
               >
                 <i className="fas fa-clipboard-list fa-2x text-white opacity-75"></i>
               </a>

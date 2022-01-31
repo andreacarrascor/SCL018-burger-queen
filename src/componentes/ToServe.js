@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import OrdersToServe from "./OrdersToServe";
 import db from "../firebase";
 import { collection, onSnapshot } from "firebase/firestore";
-import OrdersToServe from "./OrdersToServe";
 
 const ToServe = () => {
   const [ordersToServe, showOrdersToServe] = useState([])
+  console.log(ordersToServe)
   
   useEffect(() => {
     onSnapshot(
@@ -20,7 +21,7 @@ const ToServe = () => {
 
 
   let ordersReady = ordersToServe.filter((order) => {
-    return order.status === "Listo";
+    return order.status.status === "Listo";
   })
 
   
