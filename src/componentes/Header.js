@@ -1,4 +1,3 @@
-import React from 'react';
 import logo_burger_white from "../assets/img/logo_burger_white.png";
 
 
@@ -12,7 +11,7 @@ const Header = () => {
             <div className="w-full relative flex justify-between lg:w-auto px-4 lg:static lg:block lg:justify-start">
               <img className="w-15 h-16" src={logo_burger_white} alt="" />
             </div>
-            <div className="flex space-x-6">
+            <div className="flex space-x-6 mr-6">
               <a
                 className="px-3 py-2 flex items-center"
                 href="/"
@@ -27,7 +26,13 @@ const Header = () => {
               </a>
               <a
                 className="px-3 py-2 flex items-center"
-                href="#orderList"
+                href="/waiter"
+              >
+                <i className="fas fa-utensils fa-2x text-white opacity-75"></i>
+              </a>
+              <a
+                className="px-3 py-2 flex items-center"
+                href="/toServe"
               >
                 <i className="fas fa-clipboard-list fa-2x text-white opacity-75"></i>
               </a>

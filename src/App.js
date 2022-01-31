@@ -1,18 +1,19 @@
 import "@material-tailwind/react/tailwind.css";
 import React, {useState} from "react";
-import { Route, Routes } from 'react-router-dom';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
 import menu from "./menu.json";
-import Home from './componentes/Home';
-import Waiter from './componentes/Waiter';
-import Kitchen from './componentes/Kitchen';
+import Home from "./componentes/Home";
+import Waiter from "./componentes/Waiter";
+import Kitchen from "./componentes/Kitchen";
+import ToServe from "./componentes/ToServe";
 
 
 const dataMenu = menu;
 export const ContextProducts = React.createContext();
 
 const App = () => {
-  //estado data del cliente para pasar a resumeOrder y a clientForm
+  //estado data del cliente para pasar a resumeOrder y a clientForm. El input comienza vacío
   const [name, changeName] = useState("");
   const [table, changeTable] = useState("");
   //estado data de menu para pasar a drinks, food y resumeOrder
@@ -41,6 +42,12 @@ const App = () => {
     });
   };
   
+  const clearProductsFromOrder = () => {
+    setProducts({
+      ...products,
+      resumeOrder: []
+    })
+  }
   const increase = (id) => {
     setProducts({
       ...products,
@@ -67,7 +74,19 @@ const App = () => {
         .reduce((total, dish) => (total = total + dish.price * dish.count), 0)
         .toFixed(2);
 
-  const resumeProps = { name, table, changeName, changeTable, products, addProducts, removeFromOrder, increase, decrease, totalOrderAmount };
+  const resumeProps = { 
+                        name, 
+                        table,  
+                        changeName, 
+                        changeTable, 
+                        products, 
+                        addProducts, 
+                        removeFromOrder,
+                        clearProductsFromOrder, 
+                        increase, 
+                        decrease, 
+                        totalOrderAmount 
+                      };
 
   return (
       <ContextProducts.Provider value={resumeProps}>
@@ -75,6 +94,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/waiter" element={<Waiter />} />
           <Route path="/kitchen" element={<Kitchen />} />
+          <Route path="/toServe" element={<ToServe />} />
         </Routes>
       </ContextProducts.Provider>  
   );
