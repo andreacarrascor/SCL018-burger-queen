@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ContextProducts } from "../App.js";
+import { ContextProducts } from "../App.jsx";
 import InputIcon from "@material-tailwind/react/InputIcon";
 
 const ClientForm = () => {

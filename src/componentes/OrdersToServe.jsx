@@ -2,7 +2,7 @@ import Button from "@material-tailwind/react/Button";
 import { doc, updateDoc } from "firebase/firestore";
 import { useContext } from "react";
 import db from "../firebase";
-import { ContextProducts } from "../App.js";
+import { ContextProducts } from "../App.jsx";
 
 const OrdersToServe = ({ name, table, order, time, id }) => {
     const globalContext = useContext(ContextProducts);
