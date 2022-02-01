@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import Orders from "./Orders";
-import db from "../firebase";
+import OrdersToServe from "./OrdersToServe";
+import db from "../../firebase";
 import { collection, onSnapshot } from "firebase/firestore";
 
-const OrdersList = () => {
-  const [orders, showOrders] = useState([])
+const ToServe = () => {
+  const [ordersToServe, showOrdersToServe] = useState([])
   
   useEffect(() => {
     onSnapshot(
@@ -13,16 +13,18 @@ const OrdersList = () => {
         const arrayOrders = snapshot.docs.map((order) => {
           return { ...order.data(), id: order.id };
         })
-        showOrders(arrayOrders);
+        showOrdersToServe(arrayOrders);
       }
     )
   }, [])
 
-  let pendingOrders = orders.filter((order) => {
-    return order.status === "Pendiente";
+
+  let ordersReady = ordersToServe.filter((order) => {
+    return order.status.status === "Listo";
   })
 
-  let sortedPendingOrders = pendingOrders.sort((a, b) => {
+  
+  let sortedOrdersReady = ordersReady.sort((a, b) => {
     if (a.orderTime < b.orderTime) {
       return 1;
     }
@@ -34,11 +36,10 @@ const OrdersList = () => {
   });
 
   return (
-    // si existen órdenes, entonces muestra el contenido (div)
-    orders.length > 0 &&
+    ordersToServe.length > 0 &&
     <div className="flex flex-wrap justify-start mx-5">
-      {sortedPendingOrders.map((order) => {
-        return <Orders
+      {sortedOrdersReady.map((order) => {
+        return <OrdersToServe
           key={order.id}
           id={order.id}
           time={order.orderTime}
@@ -51,4 +52,4 @@ const OrdersList = () => {
   );
 }
 
-export default OrdersList;
+export default ToServe;

@@ -1,7 +1,7 @@
 import ResumeOrder from "./ResumeOrder";
 import ClientForm from "./ClientForm";
 import MenuOrder from "./MenuOrder";
-import Header from "./Header";
+import Header from "../Header";
 
 
 const Waiter = () => {
