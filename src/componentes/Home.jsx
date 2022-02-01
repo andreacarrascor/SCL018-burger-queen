@@ -10,14 +10,14 @@ const Home = () => {
       <div className="flex justify-center space-x-10">
         <Link to="/waiter">
           <button
-            className="h-20 px-10 font-semibold text-lg text-teal-50 transition-colors duration-150 bg-teal-500 rounded-lg focus:shadow-outline hover:bg-teal-800"
+            className="h-20 px-10 font-semibold text-lg text-teal-50 transition-colors duration-150 bg-teal-500 rounded-lg focus:shadow-outline "
           >
             Mesero
           </button>
         </Link>
         <Link to="/kitchen">
           <button
-            className="h-20 px-10 font-semibold text-lg text-teal-50 transition-colors duration-150 bg-teal-500 rounded-lg focus:shadow-outline hover:bg-teal-800"
+            className="h-20 px-10 font-semibold text-lg text-teal-50 transition-colors duration-150 bg-teal-500 rounded-lg focus:shadow-outline "
           >
             Cocina
           </button>
