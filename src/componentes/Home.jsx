@@ -1,26 +1,45 @@
 import { Link } from "react-router-dom";
-import burger_logo from "../assets/img/burger_logo.png";
+import logo_burger_home from "../assets/img/logo_burger_home.png";
+import Button from "@material-tailwind/react/Button";
 
 const Home = () => {
   return (
     <div className="m-20">
       <div className="flex justify-center">
-        <img src={burger_logo} alt="" />
+        <img src={logo_burger_home} width="320" height="320" alt="" />
       </div>
       <div className="flex justify-center space-x-10">
         <Link to="/waiter">
-          <button
+          <Button
+            color="teal"
+            buttonType="filled"
+            ripple="light"
             className="h-20 px-10 font-semibold text-lg text-teal-50 transition-colors duration-150 bg-teal-500 rounded-lg focus:shadow-outline "
           >
             Mesero
-          </button>
+          </Button>
         </Link>
+
+        <Link to="/ToDelivery">
+          <Button
+            color="teal"
+            buttonType="filled"
+            ripple="light"
+            className="h-20 px-10 font-semibold text-lg text-teal-50 transition-colors duration-150 bg-teal-500 rounded-lg focus:shadow-outline "
+          >
+            Para servir
+          </Button>
+        </Link>
+
         <Link to="/kitchen">
-          <button
+          <Button
+            color="teal"
+            buttonType="filled"
+            ripple="light"
             className="h-20 px-10 font-semibold text-lg text-teal-50 transition-colors duration-150 bg-teal-500 rounded-lg focus:shadow-outline "
           >
             Cocina
-          </button>
+          </Button>
         </Link>
       </div>
     </div>

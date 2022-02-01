@@ -4,9 +4,9 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import menu from "./menu.json";
 import Home from "./componentes/Home";
-import Waiter from "./componentes/Waiter";
-import Kitchen from "./componentes/Kitchen";
-import ToDelivery from "./componentes/ToDelivery";
+import Waiter from "./componentes/waiter/Waiter";
+import Kitchen from "./componentes/kitchen/Kitchen";
+import ToDelivery from "./componentes/delivery/ToDelivery";
 
 
 const dataMenu = menu;

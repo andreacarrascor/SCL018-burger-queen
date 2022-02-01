@@ -1,14 +1,13 @@
 import Button from "@material-tailwind/react/Button";
 import { doc, updateDoc } from "firebase/firestore";
 import { useContext } from "react";
-import db from "../firebase";
-import { ContextProducts } from "../App.jsx";
+import db from "../../firebase";
+import { ContextProducts } from "../../App.jsx";
 
 const OrdersToServe = ({ name, table, order, time, id }) => {
     const globalContext = useContext(ContextProducts);
     const setStatusDelivered = globalContext.setStatusDelivered;
     const statusDelivered = globalContext.statusDelivered;
-    console.log(statusDelivered)
 
     const changeStatus = () => {
     setStatusDelivered({
@@ -33,8 +32,8 @@ const OrdersToServe = ({ name, table, order, time, id }) => {
 
     return (
     <form action="" onSubmit={updateStatus}>
-        <div className="flex flex-col justify-between mx-4 my-4 p-4 bg-opacity-50 shadow-lg rounded w-72 h-64">
-        <div className="overflow-y-auto flex flex-col">
+        <div className="flex flex-col justify-between mx-2 my-4 px-2 bg-opacity-50 shadow-lg rounded min-w-75 h-80">
+        <div className="flex flex-col md:overflow-y-auto overflow-x-hidden min-w-73 mr-2 p-3">
             <h2 className="font-extrabold">Mesa {table}</h2>
             <span>Hora: {time}</span>
             <h3>Cliente: {name}</h3>
@@ -44,7 +43,7 @@ const OrdersToServe = ({ name, table, order, time, id }) => {
             </ul>
             ))}</span>
         </div>
-        <div className="flex justify-center p-2">
+        <div className="flex justify-center m-3">
             <Button
             className="text-gray-800"
             onClick={changeStatus}

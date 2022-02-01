@@ -1,9 +1,10 @@
 import { useContext } from "react";
-import { ContextProducts } from "../App.jsx";
-import db from "../firebase";
+import { ContextProducts } from "../../App";
+import db from "../../firebase";
 import { collection, addDoc } from "firebase/firestore";
 import Button from "@material-tailwind/react/Button";
 import InputIcon from "@material-tailwind/react/InputIcon";
+import Swal from 'sweetalert2'
 
 const ResumeOrder = () => {
   const globalContext = useContext(ContextProducts);
@@ -13,62 +14,78 @@ const ResumeOrder = () => {
     e.preventDefault();
     const date = new Date();
     const time = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
-    
-    if (globalContext.name === "" || globalContext.table === "") 
-    {alert("Completa los campitos")}
-      else {
-    try {
-      await addDoc(collection(db, "pedidos"), {
-        orderTime: time,
-        clientName: globalContext.name,
-        clientTable: globalContext.table,
-        clientOrder: globalContext.products.resumeOrder,
-        totalAmount: globalContext.totalOrderAmount,
-        status: "Pendiente"
-      });
-      
-      globalContext.changeName("");
-      globalContext.changeTable("");
-      globalContext.clearProductsFromOrder();
 
-    } catch (error) {
-      console.log("Error al enviar pedido");
-      console.log(error);
+    if (globalContext.name === "" || globalContext.table === 0 || 
+        globalContext.products.resumeOrder.length === 0 ) {
+
+          Swal.fire({
+            icon: 'warning',
+            title: 'Error!',
+            text: 'Completa todos los campos',
+            showConfirmButton: false,
+            // confirmButtonText: 'Ta bien',
+            // confirmButtonColor: '#03989E',
+            allowOutsideClick: true,
+
+          })
+    }
+    else {
+      try {
+        await addDoc(collection(db, "pedidos"), {
+          orderTime: time,
+          clientName: globalContext.name,
+          clientTable: globalContext.table,
+          clientOrder: globalContext.products.resumeOrder,
+          totalAmount: globalContext.totalOrderAmount,
+          status: "Pendiente"
+        });
+
+        globalContext.changeName("");
+        globalContext.changeTable("");
+        globalContext.clearProductsFromOrder();
+
+      } catch (error) {
+        console.log("Error al enviar pedido");
+        console.log(error);
+      }
     }
   }
-}
   return (
     <form action="" onSubmit={onSubmit}>
       <h2 className="font-bold text-gray-600">RESUMEN ORDEN</h2>
       <div className="flex justify-center">
         <div className="w-64 m-3 mt-6">
-          <InputIcon
-            type="text"
-            readOnly
-            name={globalContext.name}
-            color="teal"
-            outline={true}
-            value={globalContext.name}
-            onChange={(e) => globalContext.changeName(e.target.value)}
-            placeholder="Nombre cliente"
-            iconFamily="material-icons"
-            iconName="person"
-          />
+          <label>
+            <InputIcon
+              type="text"
+              readOnly
+              name={globalContext.name}
+              color="teal"
+              outline={true}
+              value={globalContext.name}
+              onChange={(e) => globalContext.changeName(e.target.value)}
+              placeholder="Nombre cliente"
+              iconFamily="material-icons"
+              iconName="person"
+            />
+          </label>
         </div>
         <div className="w-24 m-3 mt-6">
-          <InputIcon
-            type="number"
-            readOnly
-            min="1"
-            max="15"
-            name={globalContext.table}
-            color="teal"
-            outline={true}
-            value={globalContext.table}
-            onChange={(e) => globalContext.changeTable(e.target.value)}
-            placeholder="N° Mesa"
-            iconName=""
-          />
+          <label>
+            <InputIcon
+              type="number"
+              readOnly
+              min="1"
+              max="15"
+              name={globalContext.table}
+              color="teal"
+              outline={true}
+              value={globalContext.table}
+              onChange={(e) => globalContext.changeTable(e.target.value)}
+              placeholder="N° Mesa"
+              iconName=""
+            />
+          </label>
         </div>
       </div>
       <div className="md:overflow-y-auto min-h-96 max-h-96 relative flex flex-col min-w-0 break-words bg-opacity-50 w-full shadow-lg rounded">
@@ -80,7 +97,7 @@ const ResumeOrder = () => {
                 <div className="flex item w-8 h-8 items-center">${dish.price}</div>
               </div>
               <div className="flex w-20">
-                <button 
+                <button
                   type="button"
                   className="flex focus:outline-none space-x-4 items-center text-amber-500 bg-none"
                   onClick={() => globalContext.decrease(dish.id)}>
