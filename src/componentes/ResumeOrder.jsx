@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ContextProducts } from "../App.js";
+import { ContextProducts } from "../App.jsx";
 import db from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
 import Button from "@material-tailwind/react/Button";
