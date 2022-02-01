@@ -33,7 +33,7 @@ const Orders = ({ name, table, order, time, id }) => {
 
   return (
     <form action="" onSubmit={updateStatus}>
-      <div className="flex flex-col justify-between mx-4 my-4 p-4 bg-opacity-50 shadow-lg rounded w-72 h-64">
+      <div className="flex flex-col justify-between mx-4 my-4 p-4 bg-opacity-50 shadow-lg rounded w-72 h-80">
         <div className="overflow-y-auto flex flex-col">
           <h2 className="font-extrabold">Mesa {table}</h2>
           <span>Hora: {time}</span>
