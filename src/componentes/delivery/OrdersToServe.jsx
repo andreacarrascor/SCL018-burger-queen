@@ -21,7 +21,7 @@ const OrdersToServe = ({ name, table, order, time, id }) => {
 
     try {
         await updateDoc(doc(db, 'pedidos', id), {
-        status: statusDelivered,
+            status: statusDelivered,
         });
 
     } catch (error) {

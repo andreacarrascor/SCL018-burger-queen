@@ -22,6 +22,10 @@ const App = () => {
     resumeOrder: []
   });
 
+  const [ordersToServe, showOrdersToServe] = useState([])
+
+  const [orders, showOrders] = useState([])
+
   const [statusReady, setStatusReady] = useState({
     status: "Pendiente"
   });
@@ -98,7 +102,12 @@ const App = () => {
     statusReady,
     setStatusReady,
     statusDelivered,
-    setStatusDelivered
+    setStatusDelivered,
+    orders,
+    showOrders,
+    ordersToServe,
+    showOrdersToServe
+    
   };
 
   return (

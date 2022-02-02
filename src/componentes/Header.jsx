@@ -5,7 +5,7 @@ import header_burger_logo from "../assets/img/header_burger_logo.png";
 const Header = () => {
 
   return (
-    <div className="flex flex-wrap">
+    <header className="flex flex-wrap">
       <div className="w-full">
         <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-teal-500">
           <div className="container px-2 mx-auto flex flex-wrap items-center justify-between">
@@ -47,7 +47,7 @@ const Header = () => {
           </div>
         </nav>
       </div>
-    </div>
+    </header>
   );
 }
 

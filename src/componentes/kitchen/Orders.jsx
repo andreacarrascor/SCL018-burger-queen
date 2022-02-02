@@ -3,6 +3,7 @@ import { doc, updateDoc } from "firebase/firestore";
 import { useContext } from "react";
 import db from "../../firebase";
 import { ContextProducts } from "../../App.jsx";
+// import Alert from "../Alert";
 import Swal from 'sweetalert2'
 
 const Orders = ({ name, table, order, time, id }) => {
@@ -11,38 +12,12 @@ const Orders = ({ name, table, order, time, id }) => {
   const setStatusReady = globalContext.setStatusReady;
   console.log(statusReady)
 
-  Swal.fire({
-    text: '¿Seguro desea enviar a cocina?',
-    showConfirmButton: true,
-    showCancelButton: true,
-    confirmButtonText: '¡Sí!',
-    cancelButtonText: 'Noo',
-    confirmButtonColor: '#03989E',
-    cancelButtonColor: '#AD4848',
-    allowOutsideClick: false,
-  }).then((result) => {  
-
-    if (result.isConfirmed) {
-      Swal.fire(
-        'Se ha enviado a cocina'
-      )
-    }   
-    else if (result.dismiss) {
-      Swal.fire(
-        'Cancelled',
-        'Cancelado'
-      )
-    }
-  })
-
   const changeStatus = () => {
     setStatusReady({
         ...statusReady,
         status: 'Listo'
       })
   }
-
-
 
   const updateStatus = async (e) => {
     e.preventDefault();
@@ -58,9 +33,44 @@ const Orders = ({ name, table, order, time, id }) => {
     }
   }
 
+  const Alert = async (e) => {
+    e.preventDefault();
+  
+    console.log("alert ejecutado")
+    Swal.fire({
+        preventSubmit: true,
+        text: '¿Seguro de enviar a cocina?',
+        showConfirmButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'No',
+        confirmButtonColor: '#03989E',
+        cancelButtonColor: '#AD4848',
+        allowOutsideClick: false,
+    }).then((result) => {
+
+      
+        if (result.isConfirmed) {
+            changeStatus()
+            Swal.fire(
+                console.log('enviado'),
+                'Se ha enviado a cocina'
+            )
+        }
+      
+        else if (result.dismiss) {
+            Swal.fire(
+                console.log('cancelado'),
+                'Cancelado'
+            )
+        }
+    })
+}
+
 
   return (
-    <form action="" onSubmit={updateStatus}>
+    // onSubmit={updateStatus}
+    <form action="" onSubmit={(e) => changeStatus(e.target)}>
       <div className="flex flex-col justify-between mx-2 my-4 px-2 bg-opacity-50 shadow-lg rounded min-w-75 h-80">
         <div className="flex flex-col md:overflow-y-auto overflow-x-hidden w-73 mr-2 p-3">
           <h2 className="font-extrabold">Mesa {table}</h2>
@@ -75,8 +85,8 @@ const Orders = ({ name, table, order, time, id }) => {
         <div className="flex justify-center m-3">
           <Button
             className="text-gray-800"
-            onClick={changeStatus}
-            type='submit'
+            onClick={Alert}
+            type="submit"
             color="amber"
             buttonType="filled"
             size="md"
