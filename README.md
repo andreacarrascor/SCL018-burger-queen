@@ -1,5 +1,5 @@
 # Burger Queen :hamburger:
-Interfaz web SPA - Tablet First
+ReactJS - Interfaz web SPA - Tablet First
 
 ## Índice
 
@@ -69,7 +69,7 @@ costo total.
 ## 4. Consideraciones generales
 
 Este proyecto fue resuelto en duplas y la lógica del proyecto está implementada completamente 
-en JavaScript(ES6+), HTML y CSS y empaquetada de manera automatizada.
+en JavaScript(ES6+), HTML, CSS, ReactJS y empaquetada de manera automatizada.
 
 La aplicación es una _Single Page App_. Los pedidos se toman desde una
 _tablet_, en una web app **responsive** y que funciona **offline** 
