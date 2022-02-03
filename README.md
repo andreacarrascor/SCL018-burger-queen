@@ -68,7 +68,7 @@ costo total.
 
 ## 3. Diseño visual de la aplicación
 
-# Prototipo de alta fidelidad
+### Prototipo de alta fidelidad
 
 
 ![prototipo-1](src/assets/img/prototipo/prototipo_1.png)
@@ -76,9 +76,10 @@ costo total.
 ![prototipo_2](src/assets/img/prototipo/prototipo_2.png)
 
 
-# Interfaz desplegada
+### Interfaz desplegada
 
 ![homepage-waiter-view](src/assets/img/interfaz/homepage_waiter_view.png)
+
 
 ![kitchen-serving](src/assets/img/interfaz/kitchenview_to_serve_list.png)
 
@@ -95,5 +96,4 @@ Performance, Progressive Web App, Accessibility y Best Practices de Lighthouse.
 
 
 ![performance](src/assets/img/interfaz/performance_burger_queen.png)
-
 
