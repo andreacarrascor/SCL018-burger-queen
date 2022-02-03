@@ -34,7 +34,7 @@ const OrdersList = () => {
   });
 
   return (
-    // si existen órdenes, entonces muestra el contenido (div)
+    // si existen órdenes, entonces muestra el contenido (div) || renderizado condicional
     orders.length > 0 &&
     <div className="flex flex-wrap justify-start mx-5">
       {sortedPendingOrders.map((order) => {

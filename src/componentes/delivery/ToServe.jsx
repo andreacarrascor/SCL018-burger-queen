@@ -18,7 +18,6 @@ const ToServe = () => {
     )
   }, [])
 
-
   let ordersReady = ordersToServe.filter((order) => {
     return order.status.status === "Listo";
   })

@@ -26,7 +26,6 @@ const ResumeOrder = () => {
             // confirmButtonText: 'Ta bien',
             // confirmButtonColor: '#03989E',
             allowOutsideClick: true,
-
           })
     }
     else {

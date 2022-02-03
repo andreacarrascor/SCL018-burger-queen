@@ -3,37 +3,36 @@ import { doc, updateDoc } from "firebase/firestore";
 import { useContext } from "react";
 import db from "../../firebase";
 import { ContextProducts } from "../../App.jsx";
-import Swal from 'sweetalert2'
+// import Swal from 'sweetalert2'
 
 const Orders = ({ name, table, order, time, id }) => {
   const globalContext = useContext(ContextProducts);
   const statusReady = globalContext.statusReady;
   const setStatusReady = globalContext.setStatusReady;
-  console.log(statusReady)
 
-  Swal.fire({
-    text: '¿Seguro desea enviar a cocina?',
-    showConfirmButton: true,
-    showCancelButton: true,
-    confirmButtonText: '¡Sí!',
-    cancelButtonText: 'Noo',
-    confirmButtonColor: '#03989E',
-    cancelButtonColor: '#AD4848',
-    allowOutsideClick: false,
-  }).then((result) => {  
+  // Swal.fire({
+  //   text: '¿Seguro desea enviar a cocina?',
+  //   showConfirmButton: true,
+  //   showCancelButton: true,
+  //   confirmButtonText: '¡Sí!',
+  //   cancelButtonText: 'Noo',
+  //   confirmButtonColor: '#03989E',
+  //   cancelButtonColor: '#AD4848',
+  //   allowOutsideClick: false,
+  // }).then((result) => {  
 
-    if (result.isConfirmed) {
-      Swal.fire(
-        'Se ha enviado a cocina'
-      )
-    }   
-    else if (result.dismiss) {
-      Swal.fire(
-        'Cancelled',
-        'Cancelado'
-      )
-    }
-  })
+  //   if (result.isConfirmed) {
+  //     Swal.fire(
+  //       'Se ha enviado a cocina'
+  //     )
+  //   }   
+  //   else if (result.dismiss) {
+  //     Swal.fire(
+  //       'Cancelled',
+  //       'Cancelado'
+  //     )
+  //   }
+  // })
 
   const changeStatus = () => {
     setStatusReady({
@@ -41,8 +40,6 @@ const Orders = ({ name, table, order, time, id }) => {
         status: 'Listo'
       })
   }
-
-
 
   const updateStatus = async (e) => {
     e.preventDefault();
@@ -57,7 +54,6 @@ const Orders = ({ name, table, order, time, id }) => {
       console.log(error);
     }
   }
-
 
   return (
     <form action="" onSubmit={updateStatus}>
