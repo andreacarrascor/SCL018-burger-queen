@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
 import OrdersToServe from "./OrdersToServe";
+import { useEffect, useContext } from "react";
+import { ContextProducts } from "../../App";
 import db from "../../firebase";
 import { collection, onSnapshot } from "firebase/firestore";
 
 const ToServe = () => {
-  const [ordersToServe, showOrdersToServe] = useState([])
+  const globalContext = useContext(ContextProducts);
+  const ordersToServe = globalContext.ordersToServe;
+  const showOrdersToServe = globalContext.showOrdersToServe;
   
   useEffect(() => {
     onSnapshot(
