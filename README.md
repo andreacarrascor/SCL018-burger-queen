@@ -3,11 +3,14 @@ ReactJS - Interfaz web SPA - Tablet First
 
 ## Índice
 
-* [1. Preámbulo](#1-preámbulo)
-* [2. Información del cliente](#2-información-del-cliente)
-* [3. Diseño visual de la aplicación](#3-diseño-visual-de-la-aplicación)
-* [4. Consideraciones generales](#4-consideraciones-generales)
-* 
+- [Burger Queen :hamburger:](#burger-queen-hamburger)
+  - [Índice](#índice)
+  - [1. Preámbulo](#1-preámbulo)
+  - [2. Información del cliente](#2-información-del-cliente)
+  - [3. Diseño visual de la aplicación](#3-diseño-visual-de-la-aplicación)
+- [Prototipo de alta fidelidad](#prototipo-de-alta-fidelidad)
+- [Interfaz desplegada](#interfaz-desplegada)
+  - [4. Consideraciones generales](#4-consideraciones-generales)
 ***
 
 ## 1. Preámbulo
@@ -65,6 +68,19 @@ costo total.
 
 ## 3. Diseño visual de la aplicación
 
+# Prototipo de alta fidelidad
+
+
+![prototipo-1](src/assets/img/prototipo/prototipo_1.png)
+
+![prototipo_2](src/assets/img/prototipo/prototipo_2.png)
+
+
+# Interfaz desplegada
+
+![homepage-waiter-view](src/assets/img/interfaz/homepage_waiter_view.png)
+
+![kitchen-serving](src/assets/img/interfaz/kitchenview_to_serve_list.png)
 
 ## 4. Consideraciones generales
 
@@ -72,9 +88,12 @@ Este proyecto fue resuelto en duplas y la lógica del proyecto está implementad
 en JavaScript(ES6+), HTML, CSS, ReactJS y empaquetada de manera automatizada.
 
 La aplicación es una _Single Page App_. Los pedidos se toman desde una
-_tablet_, en una web app **responsive** y que funciona **offline** 
-(Progressive Web App).
+_tablet_, en una web app **responsive**.
 
 La aplicación desplegada tiene 80% o más en las puntuaciones de
 Performance, Progressive Web App, Accessibility y Best Practices de Lighthouse.
+
+
+![performance](src/assets/img/interfaz/performance_burger_queen.png)
+
 
