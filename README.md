@@ -92,7 +92,7 @@ La aplicación es una _Single Page App_. Los pedidos se toman desde una
 _tablet_, en una web app **responsive**.
 
 La aplicación desplegada tiene 80% o más en las puntuaciones de
-Performance, Progressive Web App, Accessibility y Best Practices de Lighthouse.
+Performance, Accessibility y Best Practices de Lighthouse.
 
 
 ![performance](src/assets/img/interfaz/performance_burger_queen.png)
