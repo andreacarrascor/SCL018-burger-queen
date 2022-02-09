@@ -5,6 +5,7 @@ import db from "../../firebase";
 import { ContextProducts } from "../../App.jsx";
 // import Swal from 'sweetalert2'
 
+
 const Orders = ({ name, table, order, time, id }) => {
   const globalContext = useContext(ContextProducts);
   const statusReady = globalContext.statusReady;
@@ -33,7 +34,6 @@ const Orders = ({ name, table, order, time, id }) => {
   //     )
   //   }
   // })
-
   const changeStatus = () => {
     setStatusReady({
         ...statusReady,
@@ -71,8 +71,8 @@ const Orders = ({ name, table, order, time, id }) => {
         <div className="flex justify-center m-3">
           <Button
             className="text-gray-800"
-            onClick={changeStatus}
-            type='submit'
+            onClick={Alert}
+            type="submit"
             color="amber"
             buttonType="filled"
             size="md"

@@ -1,11 +1,15 @@
-import { useEffect, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useContext } from "react";
+import { ContextProducts } from "../../App";
 import Orders from "./Orders";
 import db from "../../firebase";
 import { collection, onSnapshot } from "firebase/firestore";
 
 const OrdersList = () => {
-  const [orders, showOrders] = useState([])
-  
+  const globalContext = useContext(ContextProducts);
+  const orders = globalContext.orders;
+  const showOrders = globalContext.showOrders;
+
   useEffect(() => {
     onSnapshot(
       collection(db, "pedidos"),
@@ -19,7 +23,7 @@ const OrdersList = () => {
   }, [])
 
   let pendingOrders = orders.filter((order) => {
-    return order.status === "Pendiente";
+    return order.status.status === "Pendiente";
   })
 
   let sortedPendingOrders = pendingOrders.sort((a, b) => {

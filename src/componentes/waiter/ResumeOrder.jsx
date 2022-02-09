@@ -20,11 +20,9 @@ const ResumeOrder = () => {
 
           Swal.fire({
             icon: 'warning',
-            title: 'Error!',
+            title: '¡Error!',
             text: 'Completa todos los campos',
             showConfirmButton: false,
-            // confirmButtonText: 'Ta bien',
-            // confirmButtonColor: '#03989E',
             allowOutsideClick: true,
           })
     }
@@ -36,7 +34,8 @@ const ResumeOrder = () => {
           clientTable: globalContext.table,
           clientOrder: globalContext.products.resumeOrder,
           totalAmount: globalContext.totalOrderAmount,
-          status: "Pendiente"
+          status: globalContext.statusReady
+          // status: "Pendiente",
         });
 
         globalContext.changeName("");
