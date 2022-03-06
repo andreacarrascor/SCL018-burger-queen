@@ -2,16 +2,16 @@ import Button from "@material-tailwind/react/Button";
 import { doc, updateDoc } from "firebase/firestore";
 import { useContext } from "react";
 import db from "../../firebase";
-import { ContextProducts } from "../../App.jsx";
+import { ContextProducts } from "../../context/contextProducts";
 
 const OrdersToServe = ({ name, table, order, time, id }) => {
     const globalContext = useContext(ContextProducts);
-    const setStatusDelivered = globalContext.setStatusDelivered;
-    const statusDelivered = globalContext.statusDelivered;
+    const setStatus = globalContext.setStatus;
+    const status = globalContext.status;
 
     const changeStatus = () => {
-    setStatusDelivered({
-        ...statusDelivered,
+    setStatus({
+        ...status,
         status: 'Entregado'
     })
     }
@@ -21,7 +21,7 @@ const OrdersToServe = ({ name, table, order, time, id }) => {
 
     try {
         await updateDoc(doc(db, 'pedidos', id), {
-        status: statusDelivered,
+        status: status.statusDelivered,
         });
 
     } catch (error) {

@@ -2,13 +2,13 @@ import Button from "@material-tailwind/react/Button";
 import { doc, updateDoc } from "firebase/firestore";
 import { useContext } from "react";
 import db from "../../firebase";
-import { ContextProducts } from "../../App.jsx";
+import { ContextProducts } from "../../context/contextProducts";
 // import Swal from 'sweetalert2'
 
 const Orders = ({ name, table, order, time, id }) => {
   const globalContext = useContext(ContextProducts);
-  const statusReady = globalContext.statusReady;
-  const setStatusReady = globalContext.setStatusReady;
+  const status = globalContext.status;
+  const setStatus = globalContext.setStatus;
 
   // Swal.fire({
   //   text: '¿Seguro desea enviar a cocina?',
@@ -35,8 +35,8 @@ const Orders = ({ name, table, order, time, id }) => {
   // })
 
   const changeStatus = () => {
-    setStatusReady({
-        ...statusReady,
+    setStatus({
+        ...status,
         status: 'Listo'
       })
   }
@@ -46,7 +46,7 @@ const Orders = ({ name, table, order, time, id }) => {
 
     try {
       await updateDoc(doc(db, 'pedidos', id), {
-        status: statusReady,
+        status: status.statusReady,
       });
 
     } catch (error) {
